@@ -1,12 +1,11 @@
-CSS中的居中，在工作中，会经常遇到。它可以分为水平居中和垂直居中，以下是几种实现居中的方式。
+CSS 中的居中，在工作中，会经常遇到。它可以分为水平居中和垂直居中，以下是几种实现居中的方式。
 
-[git查看源码][1]
+[git 查看源码][1]  
 [配合在线预览，效果更佳][2]
 
-以下例子中，涉及到的CSS属性值。
+以下例子中，涉及到的 CSS 属性值。
 
 ```
-
     .parent-frame {
 
       width: 200px;
@@ -26,19 +25,13 @@ CSS中的居中，在工作中，会经常遇到。它可以分为水平居中�
       border: 1px dotted blue;
 
     }
-
 ```
-
-
-
-
 
 ## 1: text-align:center，水平居中
 
 块状元素，水平居中
 
 ```
-
   <div class="parent-frame">
 
     子元素水平居中
@@ -46,15 +39,13 @@ CSS中的居中，在工作中，会经常遇到。它可以分为水平居中�
     <i style="display:block; text-align: center;color: blue">块状元素，水平居中</i>
 
   </div>
-
 ```
 
 ## 2：margin: 0 auto，水平居中
 
-水平居中。上下外边框距为0，左右外边距浏览器会自动计算平分
+水平居中。上下外边框距为 0，左右外边距浏览器会自动计算平分
 
 ```
-
   <div class="parent-frame">
 
     子元素水平居中
@@ -62,12 +53,11 @@ CSS中的居中，在工作中，会经常遇到。它可以分为水平居中�
     <i class="child-frame" style="display: block;margin: 0 auto">块状元素，水平居中</i>
 
   </div>
-
 ```
 
-## 3：line-height值，垂直居中
+## 3：line-height 值，垂直居中
 
-垂直居中。line-height属性，设置行间的距离（行高）。不允许使用负值。
+垂直居中。line-height 属性，设置行间的距离（行高）。不允许使用负值。
 单行文本的元素才适用，多行元素中不适用这种方法。元素内容是单行，并且其高度是固定不变的，
 
 ```
@@ -75,14 +65,14 @@ CSS中的居中，在工作中，会经常遇到。它可以分为水平居中�
     <div style="line-height: 200px;">line-height值=父height值</div>
   </div>
 ```
-## 4：  使用float属性，配合relative定位，实现水平居中
 
-给父元素设置float，然后将父元素整体向右移动50%，再将子元素整体向左移动50%，来实现水平居中。
+## 4： 使用 float 属性，配合 relative 定位，实现水平居中
+
+给父元素设置 float，然后将父元素整体向右移动 50%，再将子元素整体向左移动 50%，来实现水平居中。
 
 记得将父元素清除浮动。
 
 ```
-
   <div class="parent-frame">
 
     <div style="float: left; position: relative; left: 50%; clear: both;" >
@@ -110,16 +100,13 @@ CSS中的居中，在工作中，会经常遇到。它可以分为水平居中�
     </div>
 
   </div>
-
 ```
 
+## 5：使用 table 布局，默认垂直居中
 
-## 5：使用table布局，默认垂直居中
-
-table默认垂直居中vertical-align:middle。如果还想要水平居中，那就是行内元素，添加属性text-align: center
+table 默认垂直居中 vertical-align:middle。如果还想要水平居中，那就是行内元素，添加属性 text-align: center
 
 ```
-
   <table class="parent-frame">
 
     <tr>
@@ -139,33 +126,29 @@ table默认垂直居中vertical-align:middle。如果还想要水平居中，那
     </tr>
 
   </table>
-
 ```
 
-## 6:  仿table，display:table-cell。并使用vertical-align属性,实现垂直居中
+## 6: 仿 table，display:table-cell。并使用 vertical-align 属性,实现垂直居中
 
 该属性设置元素的垂直对齐方式。
 
 定义行内元素的基线相对于该元素所在行的基线的垂直对齐。在表单元格中，这个属性会设置单元格框中的单元格的对齐方式。
 
 ```
-
   <div class="parent-frame" style="display: table-cell;vertical-align: middle">
 
     <div>仿table: display:table-cell垂直居中vertical-align:middle</div>
 
   </div>
-
 ```
 
-## 7: 使用absolute绝对定位，配合margin使用，实现水平垂直居中
+## 7: 使用 absolute 绝对定位，配合 margin 使用，实现水平垂直居中
 
-相对应于relative的绝对定位absolute，需要定宽。同时，top/bottom应该相等，并且相加不超过定宽度。 right/left也应该相等，并且相加不超过定宽。
+相对应于 relative 的绝对定位 absolute，需要定宽。同时，top/bottom 应该相等，并且相加不超过定宽度。 right/left 也应该相等，并且相加不超过定宽。
 
-再配合margin： auto使用
+再配合 margin： auto 使用
 
 ```
-
   <div class="parent-frame" style="position: relative">
 
     利用绝对定位，配合margin:auto自动计算外边距。
@@ -177,15 +160,13 @@ table默认垂直居中vertical-align:middle。如果还想要水平居中，那
     </div>
 
   </div>
-
 ```
 
-## 8: 使用absolute绝对定位，配合margin的负值(negative margins)来实现水平垂直居中。
+## 8: 使用 absolute 绝对定位，配合 margin 的负值(negative margins)来实现水平垂直居中。
 
-negative margins负边距，会使结构塌陷，利用这个特点来实现。
+negative margins 负边距，会使结构塌陷，利用这个特点来实现。
 
 ```
-
   <div class="parent-frame" style="position: relative;">
 
     利用绝对定位，配合margin的负值来实现居中。
@@ -197,15 +178,13 @@ negative margins负边距，会使结构塌陷，利用这个特点来实现。
     </div>
 
   </div>
-
 ```
 
-## 9: 使用absolute绝对定位，配合translate 移动转换，实现水平垂直居中
+## 9: 使用 absolute 绝对定位，配合 translate 移动转换，实现水平垂直居中
 
-使用百分比来绝对定位一个元素，并配合使用translate，将元素移动定位居中。
+使用百分比来绝对定位一个元素，并配合使用 translate，将元素移动定位居中。
 
 ```
-
   <div class="parent-frame" style="position: relative;">
 
     利用绝对定位，配合translate移动到水平垂直居中。
@@ -217,17 +196,15 @@ negative margins负边距，会使结构塌陷，利用这个特点来实现。
     </div>
 
   </div>
-
 ```
 
-## 10： 使用flex布局,设置其属性justify-content，align-items都为center，实现水平垂直居中
+## 10： 使用 flex 布局,设置其属性 justify-content，align-items 都为 center，实现水平垂直居中
 
- 父元素使用flex布局,并定义两个属性值justify-content，align-items都为center，那么就定义为水平垂直居中
+父元素使用 flex 布局,并定义两个属性值 justify-content，align-items 都为 center，那么就定义为水平垂直居中
 
-justify-content属性定义了项目在主轴上的对齐方式。align-items属性定义项目在交叉轴上如何对齐。
+justify-content 属性定义了项目在主轴上的对齐方式。align-items 属性定义项目在交叉轴上如何对齐。
 
 ```
-
   <div class="parent-frame" style="display: flex; justify-content: center; align-items: center">
 
     <div class="child-frame">使用flex布局，justify-content属性定义了项目在主轴上的对齐方式。</div>
@@ -239,29 +216,25 @@ justify-content属性定义了项目在主轴上的对齐方式。align-items属
     </div>
 
   </div>
-
 ```
 
-## 11: 利用flex布局，配合margin：auto使用，实现水平垂直居中。
+## 11: 利用 flex 布局，配合 margin：auto 使用，实现水平垂直居中。
 
-父元素使用flex布局，子元素使用margin: auto
+父元素使用 flex 布局，子元素使用 margin: auto
 
 ```
-
   <div class="parent-frame" style="display: flex;">
 
     <div style=" margin: auto;">父元素使用flex布局，子元素配合margin:auto使用</div>
 
   </div>
-
 ```
 
-[git查看源码][1]
+[git 查看源码][1]
 
 [在线预览][2]
 
-
-[1](https://github.com/weiqinl/demo)
-[2](https://github.com/weiqinl/demo)
+[1]: https://github.com/weiqinl/demo/blob/master/03-html-css-center/center.html
+[2]: https://github.com/weiqinl/demo
 
 [完]
