@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html中div使用CSS实现水平/垂直居中的多种方式</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .parent-frame {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+    }
+
+    .child-frame {
+      width: 100px;
+      height: 100px;
+      border: 1px dotted blue;
+    }
+
+    .float-wraper {
+      float: left;
+      position: relative;
+      left: 50%;
+      clear: both;
+    }
+
+    .float-content {
+      position: relative;
+      left: -50%
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent-frame">
+    子元素水平居中
+    <i style="display:block; text-align: center;color: blue">块状元素，水平居中</i>
+  </div>
+  <div class="parent-frame">
+    子元素水平居中
+    <i class="child-frame" style="display: block;margin: 0 auto">块状元素，水平居中</i>
+  </div>
+  <div class="parent-frame">
+    <div style="line-height: 200px;">line-height值=父height值</div>
+  </div>
+  <table class="parent-frame">
+    <tr>
+      <td style="vertical-align: middle">
+        table默认垂直居中[vertical-align: middle]
+      </td>
+      <td style="text-align:center;">
+        水平居中添加text-align:center
+      </td>
+    </tr>
+  </table>
+  <div class="parent-frame" style="display: table-cell;vertical-align: middle;">
+    <div>仿table: display:table-cell垂直居中vertical-align:middle</div>
+  </div>
+  <div class="parent-frame" style="display: inline-table;vertical-align: middle;">
+    <div>仿table: display:table-cell垂直居中vertical-align:middle</div>
+  </div>
+  <div class="parent-frame" style="position: relative">
+    利用绝对定位，配合margin:auto自动计算外边距。
+    <div class="child-frame" style="position: absolute; top: 0;right: 0; bottom: 0; left: 0;margin: auto;">
+      定宽元素,需要确定的尺寸。relative是为了给子元素定位用。
+    </div>
+  </div>
+  <div class="parent-frame" style="position: relative;">
+    利用绝对定位，配合margin的负值来实现居中。
+    <div class="child-frame" style="position: absolute; top: 50%; left: 50%; margin-top: -51px; margin-left: -51px;">
+      负边距来实现，水平垂直居中。需要知道该元素的具体大小
+    </div>
+  </div>
+  <div class="parent-frame" style="position: relative;">
+    利用绝对定位，配合translate移动到水平垂直居中。
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      不需知具体大小。支持IE9+及现代浏览器
+    </div>
+  </div>
+  <div class="parent-frame">
+    <div class="float-wraper" >
+      <div class="float-content">虽然宽度不同weiqinl</div>
+    </div>
+    <div class="float-wraper">
+      <div class="float-content">但一样</div>
+    </div>
+    <div class="float-wraper">
+      <div class="float-content">水平居中了</div>
+    </div>
+    <div class="float-wraper">
+      <div class="float-content">使用float属性，记得清楚浮动</div>
+    </div>
+  </div>
+  <div class="parent-frame" style="display: flex; justify-content: center; align-items: center">
+    <div class="child-frame">使用flex布局，justify-content属性定义了项目在主轴上的对齐方式。</div>
+    <div class="child-frame">
+      align-items属性定义项目在交叉轴上如何对齐。 两个属性都居中，则水平、垂直居中对齐
+    </div>
+  </div>
+  <div class="parent-frame" style="display: flex;">
+    <div style=" margin: auto;">父元素使用flex布局，子元素配合margin:auto使用</div>
+  </div>
+</body>
+
+</html>
