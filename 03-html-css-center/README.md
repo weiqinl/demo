@@ -235,6 +235,6 @@ justify-content 属性定义了项目在主轴上的对齐方式。align-items �
 [在线预览][2]
 
 [1]: https://github.com/weiqinl/demo/blob/master/03-html-css-center/center.html
-[2]: https://github.com/weiqinl/demo
+[2]: http://weiqinl.com/demo/03-html-css-center/center.html
 
 [完]
