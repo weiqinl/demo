@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>equal-height-layout-float-fluid-width</title>
+  <style>
+    /** 需要自己算出平均每列的宽度 */
+    .five-columns {
+      display: inline-block;
+      background: linear-gradient(to right,
+        red,
+        red 20%,
+        blue 20%,
+        blue 40%,
+        yellow 40%,
+        yellow 60%,
+        orange 60%,
+        orange 80%,
+        grey 80%,
+        grey);
+    }
+
+    .col {
+      float: left;
+      width: 16%;
+      padding: 2%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="five-columns">
+    <div class="col first">
+      <p>第一列第一列第一列第一列第一列第一列</p>
+    </div>
+    <div class="col second">
+      <p>第二列</p>
+    </div>
+    <div class="col three">
+      <p>第三列第三列第三列第三列第三列第三列第三列第三列第三列第三列</p>
+      <p>第三列第三列第三列第三列第三列第三列第三列第三列第三列第三列</p>
+    </div>
+    <div class="col four">
+      <p>第四列</p>
+    </div>
+    <div class="col five">
+      <p>第五列</p>
+      <p><a target="_blank" href="https://codepen.io/weiqinl/pen/YOObve">equal-hight-layout-table</a></p>
+      <p><a target="_blank" href="https://codepen.io/weiqinl/pen/eLLwNg">equal-height-layout-padding-margin-bottom</a></p>
+      <p><a target="_blank" href="https://codepen.io/weiqinl/pen/qMMGPr">equal-hight-layout-flex</a></p>
+      <p><a target="_blank" href="https://codepen.io/weiqinl/pen/PddxPv">equal-height-layout-float-fluid-width</a></p>
+    </div>
+  </div>
+</body>
+
+</html>
