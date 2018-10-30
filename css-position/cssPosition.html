@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css-position各属性的例子</title>
+  <meta name="description" content="CSS position属性用于指定一个元素在文档中的定位方式。top，right，bottom 和 left 属性则决定了该元素的最终位置。demo.css-position各属性的例子-static/relative/absolute/fixed ">
+  <meta name="keyword" content="css,position,absolute,relative,static,fixed,定位,相对定位,绝对定位,默认定位,固定定位">
+  <style>
+    .main {
+      text-align: center;
+      width: 900px;
+    }
+
+    .content {
+      margin: 120px auto;
+      border: 1px solid aqua;
+    }
+
+    .box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+
+    .sticky {
+      position: sticky;
+      top: -1px;
+      background-color: antiquewhite;
+    }
+
+    .sticky #one {
+      position: sticky;
+      left: 10px;
+    }
+
+    .sticky #two {
+      position: relative;
+      background-color: blueviolet;
+      top: -10px;
+    }
+
+    .sticky #three {
+      position: fixed;
+      top: 20px;
+      background-color: floralwhite;
+    }
+
+    .sticky #four {
+      position: sticky;
+      right: 10px;
+    }
+
+
+    .relative #two {
+      position: relative;
+      top: 20px;
+      left: 20px;
+      background: blue;
+    }
+
+    .relative #three {
+      position: relative;
+      background-color: brown;
+    }
+
+
+    .absolute #two {
+      position: absolute;
+      /* top: 0px; */
+      /* left: 0px; */
+      background-color: tan;
+      width: 140px;
+      height: 140px;
+    }
+
+    .absolute #five {
+      position: absolute;
+      /* top: 200px; */
+      right: 100px;
+      background-color: tan;
+    }
+
+    .fixed {
+      background-color: floralwhite;
+      width: 150px;
+    }
+
+    .fixed-right {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .fixed-left {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .wechat,
+    .telphone,
+    .top {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .telphone {
+      border-top: 1px solid aqua;
+      border-bottom: 1px solid aqua;
+    }
+
+    .static {
+      position: static;
+    }
+
+    .box-c {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin-right: 50px;
+    }
+
+    .sticky-bottom {
+      position: sticky;
+      bottom: 0;
+      background-color: grey;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="position:relative; top: 0; left: 0;">css-position各属性的例子！relative是以body为定位远点的</header>
+  <div style="position:absolute;top:0;left:0;width: 100%;">absolute是以html为定位原点的</div>
+  <main class="main">
+    <div class="sticky content">
+      sticky粘性定位
+      <div class="box" id="one">1-One</div>
+      <div class="box" id="two">2-Two</div>
+      <div class="box" id="three">3-Threefixed</div>
+      <div class="box" id="four">4-sticky粘性</div> 试着将边框变窄，测试left/right左右粘性
+    </div>
+    <div class="relative content">
+      relative相对定位
+      <div class="box" id="one">1-One</div>
+      <div class="box" id="two">2-Two</div>
+      <div class="box" id="three">3-relative</div>
+      <div class="box" id="four">4-相对定位</div>
+    </div>
+    <div class="sticky content">
+      <div class="box" id="one">1-One</div>
+      sticky:粘性，后面的粘性元素会覆盖前面的。
+    </div>
+    <div class="absolute content">
+      absolute绝对定位
+      <div class="box" id="one">1-One</div>
+      <div class="box" id="two">2-Two</div>
+      <div class="box" id="three">3-Three</div>
+      <div class="box" id="four">4-Four</div>
+      <div class="box" id="five">5-Five</div>
+      <div class="box" id="six">6-absolute</div>
+      <div class="box" id="seven">7-绝对定位</div>
+    </div>
+    <div class="fixed content fixed-left">
+      我是fixed，固定定位，不为元素预留空间，而是通过指定元素相对于屏幕视口(viewport)的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。
+      fixed属性会创建新的层叠上下文。当元素祖先的transform属性非none时候，容器由视口改为该祖先。
+    </div>
+    <div class="fixed content fixed-right">
+      <div class=" wechat">wechat</div>
+      <div class=" telphone">telphone</div>
+      <div class=" top">top↑</div>
+    </div>
+    <div class="static content">
+      static定位
+      <div class="box" id="one">1-One</div>
+      <div class="box" id="two">2-Two</div>
+      <div class="box" id="three">3-static</div>
+      <div class="box" id="four">4-默认属性</div>
+    </div>
+    <div class="content" style="position: relative;">
+      relative-demo:relative,相对于其正常位置进行定位，不影响其他元素的偏移,其他元素还是按正常文档流来排列。
+      <div class="box" style="background-color: #fff;border: 1px dotted red;">
+        <div class="box" style="position: relative; top: 20px;left: 20px;">2-relative-1</div>
+      </div>
+      <div class="box" style="background-color: #fff;border: 1px dotted red;">
+        <div class="box" style="position: relative; top: 20px;left: 20px;">2-relative-2</div>
+      </div>
+      <div class="box">2-relative-3</div>
+    </div>
+    <div class="sticky-bottom content">
+      <div class="box" id="one">1-One</div>
+      sticky:粘性 这个会粘着浏览器视口最底部。
+    </div>
+    <div class="content" style="position: relative;">
+      absolute-demo:绝对定位的例子. absolute,相对于非`static`定位以外的第一个父元素进行绝对定位，脱离了正常文档流，会影响其他元素的偏移
+      <div class="box-c" style="background-color: #fff;border: 1px dotted red;">
+        <div class="box" style="position: absolute; top: 20px;left: 20px;">2-absolute-1</div>
+      </div>
+      <div class="box-c" style="position: relative; background-color: #fff;border: 1px dotted red;">
+        <div class="box" style="position: absolute; top: 20px;left: 20px;">2-absolute-2</div>
+      </div>
+      <div class="box-c" style="position: absolute; background-color: #fff;border: 1px dotted red;">
+        <div class="box" style="position: absolute; top: 20px;left: 20px;">2-absolute-3</div>
+        <div class="box">2-a-4</div>
+      </div>
+    </div>
+  </main>
+  <section style="margin: 200px;">
+    <div style="width: 200px; height:200px; background-color:green;">
+      <div style="width: 100px; height:100px;background-color: #cff; 
+        margin: 10px;padding: 10px;border: 10px solid red;">
+        1
+      </div>
+      <div style="width: 100px; height:100px; background-color: #ccf;">
+        2
+      </div>
+    </div>
+  </section>
+  <section style="margin: 200px;">
+    <div style="width: 200px; height:200px; background-color:green; position: relative;">
+      <div style="width: 100px; height:100px;background-color: #cff;
+            position: absolute;top: 10px; left: 10px;margin: 10px; padding: 10px;border: 10px solid red;">
+        1111111111
+      </div>
+      <div style="width: 100px; height:100px; background-color: #ccf;">
+        我是2,我在下面 .....我是2,。我在下面,会被覆盖？
+      </div>
+    </div>
+  </section>
+  <footer>我的底部内容,祝大家前程似锦！</footer>
+</body>
+
+</html>
