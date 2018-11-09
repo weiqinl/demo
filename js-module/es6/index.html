@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>es6模式</title>
+</head>
+
+<body>
+  es6加载模式：请查看控制台<br />
+  1. 可以直接通过`script`标签来加载外部脚本，需要加上`type="module" `，这个属性会自动延迟异步加载<br />
+  2. 也可以通过`script`标签内嵌在网页中,同样需要加上` type="module"`，才能起作用 <br />
+  3. 最常用的还是通过外链加载<br />
+
+
+  import命令加载其他模块(.js后缀不可以省略，需要提供绝对URL或相对URL)<br />
+  export命令输出对外接口 <br />
+
+  加载多次，也只执行一次。<br />
+
+  先加载index.js <br />
+
+  之后，再加载math.js<br />
+  <!-- 方式1 -->
+  <script src="./index.mjs" type="module"></script>
+  <!-- 方式2 -->
+  <!-- <script  type="module">
+    import {
+      math
+    } from './math.js'
+    console.log('index.js-loader-cmd')
+
+    // 不管math.js中以何种方式导出，使用方式都一样
+    // console.log(math)
+    console.log(math.add(1, 2), math.name)
+  </script> -->
+  
+</body>
+
+</html>

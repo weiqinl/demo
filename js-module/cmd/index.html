@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CMD模式</title>
+</head>
+<body>
+  CMD加载模式：请查看控制台,此处使用了sea.js的cdn。<br />
+  先加载index.js <br />
+  之后，再加载math.js
+  <script src="//cdn.bootcss.com/seajs/3.0.3/sea.js"></script>
+  <script>
+  // seajs的简单配置
+  // 如果需要配置文件
+
+  // seajs加载入口模块
+  seajs.use('./index')
+  </script>
+</body>
+</html>
