@@ -9,12 +9,28 @@
 </head>
 
 <body>
-  es6加载模式：请查看控制台<br />
-  1. 可以直接通过`script`标签来加载外部脚本，需要加上`type="module" `，这个属性会自动延迟异步加载<br />
-  2. 也可以通过`script`标签内嵌在网页中,同样需要加上` type="module"`，才能起作用 <br />
-  3. 最常用的还是通过外链加载<br />
+  <p>
+    es6加载模式：请查看控制台<br />
+    1. 可以直接通过`script`标签来加载外部脚本，需要加上`type="module" `，这个属性会自动延迟异步加载<br />
+    2. 也可以通过`script`标签内嵌在网页中,同样需要加上` type="module"`，才能起作用 <br />
+    3. 最常用的还是通过外链加载<br />
+    4. 如果使用`node`加载，使用 <pre>node --experimental-modules index.mjs</pre>
+    其中后缀为.mjs的文件,是为了兼容node环境执行。如果只是浏览器环境执行，可以使用.js后缀
+  </p>
+  <hr>
+  <p>
+      import会提前执行,这里会先加载math,然后输出`loader-index.mjs`
 
+    <pre>
+        console.log('loader-index.mjs')
+        import {
+          math
+        } from './math.js'
+        
+    </pre>
 
+  </p>
+<hr>
   import命令加载其他模块(.js后缀不可以省略，需要提供绝对URL或相对URL)<br />
   export命令输出对外接口 <br />
 
@@ -23,6 +39,10 @@
   先加载index.js <br />
 
   之后，再加载math.js<br />
+
+  <script>
+    console.log('ES6 Module规范---')
+  </script>
   <!-- 方式1 -->
   <script src="./index.mjs" type="module"></script>
   <!-- 方式2 -->
@@ -36,7 +56,7 @@
     // console.log(math)
     console.log(math.add(1, 2), math.name)
   </script> -->
-  
+
 </body>
 
 </html>

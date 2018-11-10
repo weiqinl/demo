@@ -10,8 +10,15 @@
 
 <body>
   请查看控制台,此处使用了requirejs的cdn。<br />
-  先将所有依赖加载完成<br />
-  之后再执行回调函数
+  先将所有依赖加载完成，<br />
+  有了可执行的环境，之后再执行回调函数<br />
+  <p>
+    通过打印顺序，来判断加载顺序
+  </p>
+  <p>各模块执行时机是：提前加载，提前执行</p>
+  <script>
+    console.log('AMD规范---')
+  </script>
   <script data-main="./index.js" src="//cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
 </body>
 

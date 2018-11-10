@@ -1,9 +1,9 @@
-console.log('math.js-loader')
+console.log('loader-math.js')
 
 var name = 'ES6-weiqinl.com'
 
 function add(a, b) {
-  return a * b;
+  return a + b;
 }
 
 // 通过 export 提供整个接口对象

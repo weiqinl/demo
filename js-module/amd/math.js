@@ -1,8 +1,10 @@
-define(function () {
+
+define(['name'],function (name) {
   'use strict';
-  console.log('mathjs-loader')
   
-  var name = 'AMD-weiqinl.com'
+  console.log('loader-mathjs')
+
+  var name = name + '- math.js'
 
   function add(a, b) {
     return a + b;

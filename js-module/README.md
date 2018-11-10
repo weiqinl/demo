@@ -1,4 +1,4 @@
-## JavaScript模块化CommonJS/AMD/CMD/UMD/ES6Module的区别
+## JavaScript模块化CommonJS/AMD/CMD/UMD/ES6Module的区别
 
 ## JS-模块化进程
 随着js技术的不断发展，途中会遇到各种问题，比如模块化。
@@ -69,7 +69,7 @@ mb.bar()
 [AMD规范文档](https://github.com/amdjs/amdjs-api/wiki/AMD)    
 AMD(Asynchronous Module Definition - 异步加载模块定义)规范，制定了定义模块的规则,一个单独的文件就是一个模块，模块和模块的依赖可以被异步加载。主要运行于浏览器端，这和浏览器的异步加载模块的环境刚好适应，它不会影响后面语句的运行。该规范是在RequireJs的推广过程中逐渐完善的。
 
-模块功能主要的几个命令：`define`、`require`和`define.amd`。`define`是全局函数，用来定义模块。`require`命令用于输入其他模块提供的功能，`return`命令用于规范模块的对外接口，`define.amd`来判断是否为`AMD`模式。
+模块功能主要的几个命令：`define`、`require`、`return`和`define.amd`。`define`是全局函数，用来定义模块,`define(id?, dependencies?, factory)`。`require`命令用于输入其他模块提供的功能，`return`命令用于规范模块的对外接口，`define.amd`属性是一个对象，此属性的存在来表明函数遵循`AMD`规范。
 
 ```
 // moduleA.js
@@ -92,8 +92,8 @@ require(['moduleA'], function(a) {
 // index.html
 <script src="js/require.js" data-main="js/index"></script>
 ```
-在这里，我们使用`define`来定义模块，`return`来输出接口， `require`来加载模块，这是AMD官方推荐用法。当然也可以使用其他兼容性的写法，比如对 [Simplified CommonJS Wrapper](http://requirejs.org/docs/api.html#cjsmodule) 格式的支持，但背后还是原始`AMD`的运行逻辑。  
-`AMD`的运行逻辑是：提前加载，提前执行。在`Requirejs`中，申明依赖模块时，会第一时间加载并执行模块内的代码，使后面的回调函数能在所需的环境中运行。 
+在这里，我们使用`define`来定义模块，`return`来输出接口， `require`来加载模块，这是AMD官方推荐用法。当然也可以使用其他兼容性的写法，比如对 [Simplified CommonJS Wrapper](http://requirejs.org/docs/api.html#cjsmodule) 格式的支持，但背后还是原始`AMD`的运行逻辑。  
+`AMD`的运行逻辑是：提前加载，提前执行。在`Requirejs`中，申明依赖模块时，会第一时间加载并执行模块内的代码，使后面的回调函数能在所需的环境中运行。 
 为了更好地优化请求，同时推出了打包工具`r.js`，使所需加载的文件数减少。
 
 ## CMD && Sea.js
@@ -119,13 +119,13 @@ define(function(require, exports, module) {
 // 加载使用模块
 seajs.use('moduleA.js', function(ma) {
   var ma = math.func()
-}])
+})
 
 // HTML，需要在页面中引入sea.js文件。
 <script src="./js/sea.js"></script>
 <script src="./js/index.js"></script>
 ```
-这里`define`是一个全局函数，用来定义模块，并通过`exports`向外提供接口。之后，如果要使用某模块，可以通过`require`来获取该模块提供的接口。最后使用某个组件的时候，通过`seajs.use()`来调用。
+这里`define`是一个全局函数，用来定义模块，并通过`exports`向外提供接口。之后，如果要使用某模块，可以通过`require`来获取该模块提供的接口。最后使用某个组件的时候，通过`seajs.use()`来调用。
 
 >1. **通过`exports`暴露接口**。这意味着不需要命名空间了，更不需要全局变量。
 >2. **通过`require`引入依赖**。这可以让依赖内置，我们只需要关心当前模块的依赖。**关注度分离**
@@ -159,7 +159,7 @@ UMD(Universal Module Definition - 通用模块定义)模式，该模式主要用
 ```
 1. 判断`define`为函数，并且是否存在`define.amd`，来判断是否为`AMD规范`,  
 2. 判断`module`是否为一个对象，并且是否存在`module.exports`来判断是否为`CommonJS规范`  
-3. 如果以上两种都没有，设定为原始的代码规范。
+3. 如果以上两种都没有，设定为原始的代码规范。
 
 这种模式，通常会在`webpack`打包的时候用到。`output.libraryTarget`将模块以哪种规范的文件输出。
 

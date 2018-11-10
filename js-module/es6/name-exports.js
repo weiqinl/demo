@@ -1,3 +1,4 @@
+console.log('loader-name-exports.js')
 var PI = 3.14;
 
 var foo = function () {
