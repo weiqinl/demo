@@ -94,7 +94,8 @@ require(['moduleA'], function(a) {
 ```
 在这里，我们使用`define`来定义模块，`return`来输出接口， `require`来加载模块，这是AMD官方推荐用法。当然也可以使用其他兼容性的写法，比如对 [Simplified CommonJS Wrapper](http://requirejs.org/docs/api.html#cjsmodule) 格式的支持，但背后还是原始`AMD`的运行逻辑。  
 `AMD`的运行逻辑是：提前加载，提前执行。在`Requirejs`中，申明依赖模块时，会第一时间加载并执行模块内的代码，使后面的回调函数能在所需的环境中运行。 
-为了更好地优化请求，同时推出了打包工具`r.js`，使所需加载的文件数减少。
+为了更好地优化请求，同时推出了打包工具`r.js`，使所需加载的文件数减少。[require.js模块化开发，并用r.js打包例子](https://github.com/weiqinl/demo/tree/master/02-require-r-example)
+
 
 ## CMD && Sea.js
 [CMD规范文档](https://github.com/cmdjs/specification/blob/master/draft/module.md)  
@@ -243,11 +244,12 @@ $ node --experimental-modules my-app.mjs
 以上即是，我对js模块化概念，理论结合实践完成的简单梳理。通过阅读前辈的文章或者各种`Issue`,也大概了解了JS的历史进程。以史为鉴，可以知兴替。此时不断成为历史，历史终将定论。
 
 ## 参考
-0. [各模块化使用的例子](https://github.com/weiqinl/demo)
+0. [各模块化使用的例子](https://github.com/weiqinl/demo/tree/master/js-module)
 1. [Require.js](https://requirejs.org/)
 2. [Sea.js](https://github.com/seajs/seajs)
 3. [UMD](https://github.com/umdjs/umd)
 4. [ES6 Module](http://es6.ruanyifeng.com/#docs/module-loader)
 5. [JavaScript模块化七日谈](http://huangxuan.me/js-module-7day/#/)
+6. [require.js模块化开发，并用r.js打包例子](https://github.com/weiqinl/demo/tree/master/02-require-r-example)
 
 [完]
